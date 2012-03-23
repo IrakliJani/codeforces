@@ -1,31 +1,32 @@
-groups = STDIN.read.split("\n")[1].split(' ').map(&:to_i)
+gets
+ca, c = [0] * 5, 0
+STDIN.read.split.each {|i| ca[i.to_i] += 1}
 
-max = 4
-count = 0
+c += ca[4]
+c += ca[2] / 2
 
-groups.sort!.reverse!
+ca[2] = ca[2].odd? ? 1 : 0
 
-while !groups.empty? do
-	if groups.length == 1
-		count += 1
-		break
-	end
-	if groups.first == max
-		groups.shift
-		count += 1
-	else
-		if groups.first + groups.last == max
-			groups.shift
-			groups.pop
-			count += 1
-		elsif groups.first + groups.last > max
-			groups.shift
-			count += 1
-		else
-			groups[0] = groups.first + groups.last
-			groups.pop
-		end
-	end
+if ca[1] <= ca[3]
+	c += ca[1]
+	ca[3] -= ca[1]
+	ca[1] = 0
+else
+	c += ca[3]
+	ca[1] -= ca[3]
+	ca[3] = 0
 end
 
-STDOUT.puts count
+if ca[3] > 0
+	c += ca[3]
+end
+
+if ca[2] > 0
+	c += 1
+	ca[1] -= 1 if ca[1] >= 2
+	ca[1] -= 1 if ca[1] >= 1
+end
+
+c += (ca[1] / 4.0).ceil
+
+puts c
