@@ -1,0 +1,1 @@
+puts gets.chop =~ /[HQ9]/ ? "YES" : "NO"
