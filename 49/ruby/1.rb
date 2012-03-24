@@ -1,0 +1,1 @@
+puts (%w{a e i o u y}.include? gets.chop.gsub(/\s/, '').chop[-1].downcase) ? :YES : :NO
