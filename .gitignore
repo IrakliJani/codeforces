@@ -1,6 +1,6 @@
 in
 out
 *.out
-*.cpp~
+*~
 *.swp
 *.swo
