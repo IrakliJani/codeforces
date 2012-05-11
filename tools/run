@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+# TODO: rc
+
+# execute problem
+# run 78 a => same as `cd 078/ruby && ruby a.rb < in`
+
+d = "%03d" % ARGV.shift.to_i
+f = ARGV.first + ".rb"
+
+Dir.chdir "#{d}/ruby"
+
+print `ruby #{f} < in`

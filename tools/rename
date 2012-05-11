@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-# renamer.rb
 # simple file renamer for this directory
 #   1 -> 001
 #  10 -> 010

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+# TODO: rc & template
+
+# creates directory for contest and problem
+# create 15 a      => creates directory 015/ruby and files: a.rb, in
+# create 100 c a b => creates directory 100/ruby and files: a.rb, b.rb, c.rb, in
+
+d = "%03d" % ARGV.shift.to_i
+f = ['in'] + ARGV.map { |i| i + '.rb' }
+
+Dir.mkdir d if Dir[d].empty?
+Dir.chdir d
+Dir.mkdir 'ruby' if Dir["ruby"].empty?
+Dir.chdir 'ruby'
+
+f.each { |file| File.open file, "a" }
+
+`subl #{f.join" "}`

@@ -1,3 +1,5 @@
+# TODO: speed limit
+
 stdin = STDIN.read
 
 num = stdin.split("\n")[0].to_i
